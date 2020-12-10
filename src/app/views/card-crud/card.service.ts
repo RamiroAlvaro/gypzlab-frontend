@@ -13,12 +13,25 @@ import { GYPZ_API } from 'src/app/app.api';
 })
 export class CardService {
 
-  // token = 'Token 3b46b858298f51a2be3084555c7b9bc50ab3bb20'
-  token_value = localStorage.getItem('token')
-  token = `Token ${this.token_value}` 
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.token)
+  token = null;
+  httpHeaders;
+  userId = null;
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
+  constructor(private snackBar: MatSnackBar, private http: HttpClient) { 
+    this.initAuth()
+  }
+
+  initAuth() {
+    this.token = localStorage.getItem('token')
+    this.userId = localStorage.getItem('id')
+    this.httpHeaders = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', `Token ${this.token}`)
+  }
+
+  destroyAuth() {
+    this.token =  null
+    this.httpHeaders = null
+    this.userId = null
+  }
 
   showMessage(msg: string, isError: boolean = false): void {
       this.snackBar.open(msg, 'X', {
@@ -78,7 +91,7 @@ export class CardService {
   }
 
   loginUser(userData): Observable<any> {
-    const url = `${GYPZ_API}api-token-auth/`
+    const url = `${GYPZ_API}authenticate/`
     return this.http.post<any>(url, userData).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))

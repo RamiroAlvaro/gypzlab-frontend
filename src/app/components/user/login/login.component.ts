@@ -26,9 +26,12 @@ export class LoginComponent implements OnInit {
         console.log(result)
         this.cardService.showMessage('Login executado com sucesso !')
         localStorage.setItem ('token', result.token)
+        localStorage.setItem ('id', result.id)
+        this.cardService.initAuth()
+        this.router.navigate(['/cards'])
       }
     )
-    this.router.navigate(['/cards'])
+    
      
   }
 

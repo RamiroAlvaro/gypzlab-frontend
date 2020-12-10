@@ -15,6 +15,7 @@ export class CardReadComponent implements OnInit {
   constructor(private cardService: CardService) { }
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('token'))
      this.cardService.read().subscribe(cards => {
        this.cards = cards
      })

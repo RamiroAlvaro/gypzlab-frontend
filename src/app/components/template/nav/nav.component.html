@@ -7,25 +7,25 @@
                 </i>
                 Início
             </a>
-            <a mat-list-item routerLink="/login">
+            <a mat-list-item routerLink="/login" *ngIf="!isLogged()">
                 <i class="material-icons">
                     login
                 </i>
                 Entrar
             </a>
-            <a mat-list-item routerLink="/">
+            <a mat-list-item (click)="logout()" *ngIf="isLogged()">
                 <i class="material-icons">
                     logout
                 </i>
                 Sair
             </a>
-            <a mat-list-item routerLink="/users/read/1">
+            <a mat-list-item routerLink="/users/read/{{getUserId()}}" *ngIf="isLogged()">
                 <i class="material-icons">
                     account_box
                 </i>
                 Sobre
             </a>
-            <a mat-list-item routerLink="/cards">
+            <a mat-list-item routerLink="/cards" *ngIf="isLogged()">
                 <i class="material-icons">
                     credit_card
                 </i>
