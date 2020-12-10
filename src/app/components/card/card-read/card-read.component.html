@@ -9,7 +9,10 @@
       <!-- Name Column -->
       <ng-container matColumnDef="solicitation_status">
         <th mat-header-cell *matHeaderCellDef>Status do pedido</th>
-        <td mat-cell *matCellDef="let row">{{row.solicitation_status}}</td>
+        <td mat-cell *matCellDef="let row">
+          <strong *ngIf="row.solicitation_status; else elseBlock">Aprovado</strong>
+          <ng-template #elseBlock><strong>Desaprovado</strong></ng-template>
+        </td>
       </ng-container>
   
       <!-- Name Column -->

@@ -12,7 +12,7 @@ export class CardCrudComponent implements OnInit {
 
   card: Card = {}
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService, private router: Router) { }
 
   ngOnInit(): void {
     
@@ -22,7 +22,9 @@ export class CardCrudComponent implements OnInit {
     this.cardService.create(this.card).subscribe(() => {
       this.cardService.showMessage('Operação executada com sucesso')
     })
-    window.location.reload()
+    this.router.navigateByUrl('/cards/read', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/cards']);
+  });
   }
 
 }

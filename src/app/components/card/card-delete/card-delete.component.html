@@ -12,7 +12,9 @@
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Status do pedido"
-             [value]="card.solicitation_status" name="solicitation_status" disabled>
+             name="solicitation_status" disabled *ngIf="card.solicitation_status" value="Aprovado">
+             <input matInput placeholder="Status do pedido"
+             name="solicitation_status" disabled *ngIf="!card.solicitation_status" value="Desaprovado">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Score"

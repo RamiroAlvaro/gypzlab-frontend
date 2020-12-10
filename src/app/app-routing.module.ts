@@ -3,6 +3,7 @@ import { HomeComponent } from './views/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CardDeleteComponent } from './components/card/card-delete/card-delete.component';
+import { CardReadComponent } from './components/card/card-read/card-read.component';
 
 
 
@@ -18,7 +19,12 @@ const routes: Routes = [
   {
     path: 'cards/delete/:id',
     component: CardDeleteComponent
-  }
+  },
+  {
+    path: 'cards/read',
+    component: CardReadComponent
+  },
+
 ];
 
 @NgModule({
