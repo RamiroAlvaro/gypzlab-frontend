@@ -31,6 +31,8 @@ import { MatSortModule } from '@angular/material/sort';
 import locatePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { CardDeleteComponent } from './components/card/card-delete/card-delete.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { UserReadComponent } from './components/user/user-read/user-read.component';
 
 registerLocaleData(locatePt);
 
@@ -44,7 +46,9 @@ registerLocaleData(locatePt);
     CardCrudComponent,
     CardReadComponent,
     CardRead2Component,
-    CardDeleteComponent
+    CardDeleteComponent,
+    LoginComponent,
+    UserReadComponent
   ],
   imports: [
     BrowserModule,

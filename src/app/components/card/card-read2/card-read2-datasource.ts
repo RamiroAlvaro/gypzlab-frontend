@@ -11,7 +11,7 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: Card[] = [
   {
-    "id": 2,
+    "id": 39,
     "user": 1,
     "score": 337,
     "credit": 1000.0,
@@ -19,7 +19,7 @@ const EXAMPLE_DATA: Card[] = [
     "solicitation_date": "2020-12-07"
 },
 {
-    "id": 3,
+    "id": 32,
     "user": 1,
     "score": 344,
     "credit": 1000.0,
@@ -27,11 +27,11 @@ const EXAMPLE_DATA: Card[] = [
     "solicitation_date": "2020-12-07"
 },
 {
-    "id": 4,
+    "id": 34,
     "user": 1,
     "score": 613,
     "credit": 5000.0,
-    "solicitation_status": true,
+    "solicitation_status": false,
     "solicitation_date": "2020-12-07"
 },
 ];

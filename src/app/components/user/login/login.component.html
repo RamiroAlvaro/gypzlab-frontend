@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="E-mail"
+              name="email" type="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Password" 
+              name="password" type="password">
+        </mat-form-field>
+    </form>
+
+
+    <button mat-raised-button (click)="login()" color="primary">
+        Entrar
+    </button>
+
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

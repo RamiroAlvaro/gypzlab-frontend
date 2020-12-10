@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-title>Perfil de {{ user.first_name | uppercase }}</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome"
+             [value]="user.first_name | uppercase" name="first_name" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Sobrenome"
+             [value]="user.last_name | uppercase" name="last_name" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="E-mail"
+             [value]="user.email" name="email" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="CPF"
+             [value]="user.cpf" name="cpf" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Telefone"
+             [value]="user.phone" name="phone" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Salário" 
+             [value]="user.salary | currency: 'BRL'" name="salary" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Data de nascimento"
+             [value]="user.birthdate | date: 'dd/MM/yyyy'" name="birthdate" disabled>
+        </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="goCards()" color="primary">
+        Voltar
+    </button>
+</mat-card>
