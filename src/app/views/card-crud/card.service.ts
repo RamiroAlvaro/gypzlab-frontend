@@ -1,12 +1,19 @@
+import { Card } from './card.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
 
-  constructor(private snackBar: MatSnackBar) { }
+  baseUrl = 'http://localhost:8000/cards/'
+  token = 'Token 3b46b858298f51a2be3084555c7b9bc50ab3bb20'
+  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.token)
+
+  constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
   showMessage(msg: string): void {
       this.snackBar.open(msg, 'X', {
@@ -15,4 +22,13 @@ export class CardService {
         verticalPosition: 'top'
       })
   }
+
+  create(card: Card): Observable<Card> {
+      return this.http.post<Card>(this.baseUrl, card, {headers: this.httpHeaders})
+  }
+
+  read(): Observable<Card[]> {
+    return this.http.get<Card[]>(this.baseUrl, {headers: this.httpHeaders})
+  }
+
 }

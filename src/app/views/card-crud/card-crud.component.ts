@@ -1,3 +1,4 @@
+import { Card } from './card.model';
 import { CardService } from './card.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardCrudComponent implements OnInit {
 
+  card: Card = {}
+
   constructor(private cardService: CardService) { }
 
   ngOnInit(): void {
@@ -15,7 +18,9 @@ export class CardCrudComponent implements OnInit {
   }
 
   applyForCreditCard(): void {
-    this.cardService.showMessage('Operação executada com sucesso')
+    this.cardService.create(this.card).subscribe(() => {
+      this.cardService.showMessage('Operação executada com sucesso')
+    })
   }
 
 }
