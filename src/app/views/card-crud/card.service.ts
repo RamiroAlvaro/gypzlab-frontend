@@ -31,4 +31,19 @@ export class CardService {
     return this.http.get<Card[]>(this.baseUrl, {headers: this.httpHeaders})
   }
 
+  readById(id: number): Observable<Card> {
+    const url = `${this.baseUrl}${id}/`
+    return this.http.get<Card>(url, {headers: this.httpHeaders})
+  }
+
+  update(card: Card): Observable<Card> {
+    const url = `${this.baseUrl}${card.id}/`
+    return this.http.put<Card>(url, card, {headers: this.httpHeaders})
+  }
+
+  delete(id: number): Observable<Card> {
+    const url = `${this.baseUrl}${id}/`
+    return this.http.delete<Card>(url, {headers: this.httpHeaders})
+  }
+
 }

@@ -1,0 +1,35 @@
+
+<mat-card>
+    <mat-card-title>Excluir Cartão</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Número do pedido"
+             [value]="card.id" name="id" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Limite de Crédito" 
+             [value]="card.credit | currency: 'BRL'" name="credit" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Status do pedido"
+             [value]="card.solicitation_status" name="solicitation_status" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Score"
+             [value]="card.score" name="score" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Solicitado em"
+             [value]="card.solicitation_date | date: 'dd/MM/yyyy'" name="solicitation_date" disabled>
+        </mat-form-field>
+    </form>
+
+
+    <button mat-raised-button (click)="deleteCard()" color="warn">
+        Excluir
+    </button>
+
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

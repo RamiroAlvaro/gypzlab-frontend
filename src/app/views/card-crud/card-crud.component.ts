@@ -1,6 +1,7 @@
 import { Card } from './card.model';
 import { CardService } from './card.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-crud',
@@ -21,6 +22,7 @@ export class CardCrudComponent implements OnInit {
     this.cardService.create(this.card).subscribe(() => {
       this.cardService.showMessage('Operação executada com sucesso')
     })
+    window.location.reload()
   }
 
 }
