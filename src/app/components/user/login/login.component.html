@@ -3,11 +3,11 @@
     <form>
         <mat-form-field>
             <input matInput placeholder="E-mail"
-              name="email" type="email">
+              name="username" type="email" [(ngModel)]="user.username">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Password" 
-              name="password" type="password">
+              name="password" type="password" [(ngModel)]="user.password">
         </mat-form-field>
     </form>
 

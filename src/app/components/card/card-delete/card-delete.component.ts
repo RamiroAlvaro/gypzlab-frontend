@@ -27,7 +27,7 @@ export class CardDeleteComponent implements OnInit {
 
   deleteCard(): void {
     this.cardService.delete(this.card.id).subscribe(() => {
-      this.cardService.showMessage('Cartão excluido com sucesso!')
+      this.cardService.showMessage('Cartão excluido com sucesso !')
       this.router.navigate(['/cards']);
     })
   }
